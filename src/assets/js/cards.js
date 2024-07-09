@@ -2,12 +2,13 @@
  * @type {Card}
  */
 class Card{
-    constructor(nombre){
+    constructor(nombre, titre){
 
         /**
          * @type {number}
          */
         this.nombre = nombre;
+        this.titre = titre;
     }
 
     toHtml(){
@@ -24,6 +25,13 @@ class Card{
         const p = document.createElement('p');
         p.textContent = this.nombre;
         li.appendChild(p);
+
+        /**
+         * @type {HTMLElement}
+         */
+        const title = document.createElement('p');
+        title.textContent = this.titre;
+        li.appendChild(title);
 
         /**
          * @type {HTMLElement}
@@ -58,31 +66,40 @@ class Card{
  */
 const cards = [
     new Card(
-        1
+        1,
+        'titre'
     ),
     new Card(
-        2
+        2,
+        'titre'
     ),
     new Card(
-        3
+        3,
+        'titre'
     ),
     new Card(
-        4
+        4,
+        'titre'
     ),
     new Card(
-        5
+        5,
+        'titre'
     ),
     new Card(
-        6
+        6,
+        'titre'
     ),
     new Card(
-        7
+        7,
+        'titre'
     ),
     new Card(
-        8
+        8,
+        'titre'
     ),
     new Card(
-        9
+        9,
+        'titre'
     ),
 ]
 
@@ -102,6 +119,14 @@ const button = document.createElement('button');
 button.textContent = 'Switch';
 button.className = 'bg-black text-white py-2 px-6 rounded-md w-full md:w-fit md:self-end';
 main.appendChild(button);
+
+/**
+ * @type {HTMLElement}
+ */
+const button2 = document.createElement('button');
+button2.textContent = 'Hide Cards';
+button2.className = 'bg-black text-white py-2 px-6 rounded-md w-full md:w-fit md:self-end';
+main.appendChild(button2);
 
 /**
  * @type {HTMLElement}
@@ -152,4 +177,11 @@ cards.forEach(card => {
         card.classList.remove('bg-pink-500');
     }
 });
+});
+
+button2.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.classList.toggle('hidden');
+    })
 });
