@@ -60,9 +60,9 @@ class Card{
         return li;
     }
 }
-
+// Pas la bonne methode pour definir un array mais je comprend que tu comprends -0.25
 /**
- * @type {[Card]}
+ * @type {Card[]}
  */
 const cards = [
     new Card(
@@ -147,36 +147,36 @@ cards.forEach(card => {
 */
 
 button.addEventListener('click', () => {
-
-if(document.body.classList.contains('bg-cyan-100')){
-    document.body.classList.add('bg-black');
-    document.body.classList.remove('bg-cyan-100');
-} else{
-    document.body.classList.remove('bg-black');
-    document.body.classList.add('bg-cyan-100');
-}
-
-/**
- * @type {[HTMLElement]}
- */
-const cards = document.querySelectorAll('.card');
-cards.forEach(card => {
-    if(card.classList.contains('bg-black')){
-
-        button.classList.remove('bg-black');
-        button.classList.add('bg-pink-500');
-
-        card.classList.add('bg-pink-500');
-        card.classList.remove('bg-black');
+    //indentation -0.5
+    if(document.body.classList.contains('bg-cyan-100')){
+        document.body.classList.add('bg-black');
+        document.body.classList.remove('bg-cyan-100');
     } else{
-
-        button.classList.add('bg-black');
-        button.classList.remove('bg-pink-500');
-
-        card.classList.add('bg-black');
-        card.classList.remove('bg-pink-500');
+        document.body.classList.remove('bg-black');
+        document.body.classList.add('bg-cyan-100');
     }
-});
+
+    /**
+     * @type {[HTMLElement]}
+     */
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if(card.classList.contains('bg-black')){
+
+            button.classList.remove('bg-black');
+            button.classList.add('bg-pink-500');
+
+            card.classList.add('bg-pink-500');
+            card.classList.remove('bg-black');
+        } else{
+
+            button.classList.add('bg-black');
+            button.classList.remove('bg-pink-500');
+
+            card.classList.add('bg-black');
+            card.classList.remove('bg-pink-500');
+        }
+    });
 });
 
 button2.addEventListener('click', () => {
